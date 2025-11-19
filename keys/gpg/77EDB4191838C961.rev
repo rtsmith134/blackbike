@@ -1,0 +1,37 @@
+This is a revocation certificate for the OpenPGP key:
+
+pub   rsa4096 2025-11-19 [SCEAR]
+      342463BDFB62E667573F66B177EDB4191838C961
+uid          blackbike packages <blackbike-packages@users.noreply.github.com>
+
+A revocation certificate is a kind of "kill switch" to publicly
+declare that a key shall not anymore be used.  It is not possible
+to retract such a revocation certificate once it has been published.
+
+Use it to revoke this key in case of a compromise or loss of
+the secret key.  However, if the secret key is still accessible,
+it is better to generate a new revocation certificate and give
+a reason for the revocation.  For details see the description of
+of the gpg command "--generate-revocation" in the GnuPG manual.
+
+To avoid an accidental use of this file, a colon has been inserted
+before the 5 dashes below.  Remove this colon with a text editor
+before importing and publishing this revocation certificate.
+
+:-----BEGIN PGP PUBLIC KEY BLOCK-----
+Comment: This is a revocation certificate
+
+iQI2BCABCgAgFiEENCRjvfti5mdXP2axd+20GRg4yWEFAmkd50QCHQAACgkQd+20
+GRg4yWGr/hAAgYIDbimD9YdldMK5xBWJFajaOOMnNgOepnDLaep6HVpFaRtvhT4B
+qXP/rasaaPNwDtOAHr63cYo7Ty5V+pLT0M1tczwn95cmMaEpx0wSKYgOd4i82Acm
+JWjkt6ChVGsbswObJLfkWU3qUcmphznCrtnfKeCEchJDPutaS7x8C+KEhkTz1pkf
+lqemS40LOoBXtmqpAQ7RDvPmQsC2w5cLRCcGxRfwdv3v2adUfTbt9A+cXokMlqUF
++Os150Frh5RxNevCZDWDjFMUKwwQohvfjjxyDMrr3dBNSMMwIxkHwGxsatskSBN/
+1r3b3y/PvL4UFDGAkk/SJIucWNRaPpoVGcouFfxioQKBBov/+JSUeatps/HhQA8N
+aVZ0jujwuCbK7o/ETU+vmHkDy2XUHt+kJPBtxvjFqsFE1/Yq51gt1WQqhhPL7Dsb
+E7KlQZn9n6VnBntodoyBFFRCCA4mQ1QXIIaDTAlRifL2Y5RN2/kxAB6YL65Deivn
+Bi7u6h3Z8fPN4XbOqEY7yLNE4KSj6NQQzgXN0v6uVifpi5qG8lRF4AmCVb9RpO8m
+Lwn6UslJlmHCNk/0XfQfLYZiiLXuvBQZtIkfQlW50cMzSr629/n5aw/au12OwKAU
+g0L8wo0LqDlEnlNTmB/SXsg66AU8CnXhYJYUhsj9bhm/zp/sIoM8hbw=
+=UHnp
+-----END PGP PUBLIC KEY BLOCK-----
