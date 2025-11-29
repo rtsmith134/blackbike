@@ -18,7 +18,7 @@ define Package/$(PKG_NAME)/Default
 	SECTION:=utils
 	CATEGORY:=Utilities
 	TITLE:=self-use openwrt extended packages
-	URL:=https://github.com/muink/blackbike-packages
+	URL:=https://github.com/rtsmith134/blackbike
 	DEPENDS:=
 	PKGARCH:=all
 endef
@@ -26,115 +26,25 @@ endef
 define Package/$(PKG_NAME)-packages
 	$(call Package/$(PKG_NAME)/Default)
 	DEPENDS+:=\
-		+alwaysonline \
-		+bandix \
-		+einat-ebpf \
 		+blackbike-keyring \
 		+blackbike-packages-feeds \
-		+fakehttp \
-		+fastfetch \
-		+go-stun \
-		+internet-detector \
-		+mihomo \
-		+natmapt \
-		+natter \
-		+netdata-ssl \
-		+pcap-dnsproxy \
-		+rgmac \
-		+scart \
-		+shadowsocks-rust \
-		+speedtest-go \
-		+stuntman \
-		+Toolkit \
-		+uci-alwaysonline
+		+tunnelblick-openvpn
 endef
 
 define Package/$(PKG_NAME)-luci
 	$(call Package/$(PKG_NAME)/Default)
 	DEPENDS+:=\
-		+luci-app-alwaysonline \
-		+luci-app-bandix \
-		+luci-app-change-mac \
-		+luci-app-cpu-perf \
-		+luci-app-cpu-status \
-		+luci-app-cpu-status-mini \
-		+luci-app-diskman \
-		+luci-app-disks-info \
-		+luci-app-dnsproxy \
-		+luci-app-einat \
-		+luci-app-fakehttp \
-		+luci-app-fchomo \
-		+luci-app-interfaces-statistics \
-		+luci-app-internet-detector \
-		+luci-app-ipinfo \
-		+luci-app-log-viewer \
-		+luci-app-natmapt \
-		+luci-app-natter \
-		+luci-app-netdata \
-		+luci-app-netspeedtest \
-		+luci-app-packagesync \
-		+luci-app-pcap-dnsproxy \
-		+luci-app-qbittorrent \
-		+luci-app-ssrust \
-		+luci-app-temp-status \
-		+luci-app-tinyfilemanager \
-		+luci-app-tn-netports \
-		+luci-app-xray \
-		+luci-app-xray-status
+		+luci-app-netspeedtest
 endef
 
 define Package/$(PKG_NAME)
 	$(call Package/$(PKG_NAME)/Default)
 	DEPENDS+:=\
-		+alwaysonline \
-		+bandix \
-		+einat-ebpf \
 		+blackbike-keyring \
 		+blackbike-packages-feeds \
-		+fakehttp \
-		+fastfetch \
-		+go-stun \
-		+internet-detector \
-		+mihomo \
-		+natmapt \
-		+natter \
-		+netdata-ssl \
-		+pcap-dnsproxy \
-		+rgmac \
-		+scart \
-		+shadowsocks-rust \
-		+speedtest-go \
-		+stuntman \
-		+Toolkit \
-		+uci-alwaysonline \
-		+luci-app-alwaysonline \
-		+luci-app-bandix \
-		+luci-app-change-mac \
-		+luci-app-cpu-perf \
-		+luci-app-cpu-status \
-		+luci-app-cpu-status-mini \
-		+luci-app-diskman \
-		+luci-app-disks-info \
-		+luci-app-dnsproxy \
-		+luci-app-einat \
-		+luci-app-fchomo \
-		+luci-app-interfaces-statistics \
-		+luci-app-internet-detector \
-		+luci-app-ipinfo \
-		+luci-app-log-viewer \
-		+luci-app-natmapt \
-		+luci-app-natter \
-		+luci-app-netdata \
-		+luci-app-netspeedtest \
-		+luci-app-packagesync \
-		+luci-app-pcap-dnsproxy \
-		+luci-app-qbittorrent \
-		+luci-app-ssrust \
-		+luci-app-temp-status \
-		+luci-app-tinyfilemanager \
-		+luci-app-tn-netports \
-		+luci-app-xray \
-		+luci-app-xray-status
+		+tunnelblick-openvpn \
+		+luci-app-netspeedtest
+
 endef
 
 define Build/Configure
