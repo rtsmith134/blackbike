@@ -37,7 +37,7 @@ define Package/openvpn-xor/Default
   URL:=http://openvpn.net
   SUBMENU:=VPN
   MENU:=1
-  DEPENDS:=+kmod-tun +OPENVPN_$(1)_ENABLE_LZO:liblzo +OPENVPN_$(1)_ENABLE_IPROUTE2:ip $(3)
+  DEPENDS:=+kmod-tun +OPENVPN_XOR_$(1)_ENABLE_LZO:liblzo +OPENVPN_XOR_$(1)_ENABLE_IPROUTE2:ip $(3)
   VARIANT:=$(1)
   PROVIDES:=openvpn openvpn-crypto
 endef
@@ -55,13 +55,13 @@ Package/openvpn-xor-mbedtls/config=$(call Package/openvpn-xor/config/Default,mbe
 Package/openvpn-xor-wolfssl/config=$(call Package/openvpn-xor/config/Default,wolfssl)
 
 ifeq ($(BUILD_VARIANT),mbedtls)
-CONFIG_OPENVPN_MBEDTLS:=y
+CONFIG_OPENVPN_XOR_MBEDTLS:=y
 endif
 ifeq ($(BUILD_VARIANT),openssl)
-CONFIG_OPENVPN_OPENSSL:=y
+CONFIG_OPENVPN_XOR_OPENSSL:=y
 endif
 ifeq ($(BUILD_VARIANT),wolfssl)
-CONFIG_OPENVPN_WOLFSSL:=y
+CONFIG_OPENVPN_XOR_WOLFSSL:=y
 endif
 
 CONFIGURE_VARS += \
@@ -70,23 +70,23 @@ CONFIGURE_VARS += \
 
 define Build/Configure
 	$(call Build/Configure/Default, \
-		$(if $(CONFIG_OPENVPN_$(BUILD_VARIANT)_ENABLE_SMALL),--enable-small) \
+		$(if $(CONFIG_OPENVPN_XOR_$(BUILD_VARIANT)_ENABLE_SMALL),--enable-small) \
 		--disable-selinux \
 		--disable-systemd \
 		--disable-plugins \
 		--disable-debug \
 		--disable-pkcs11 \
-		$(if $(CONFIG_OPENVPN_$(BUILD_VARIANT)_ENABLE_LZO),--enable,--disable)-lzo \
-		$(if $(CONFIG_OPENVPN_$(BUILD_VARIANT)_ENABLE_LZ4),--enable,--disable)-lz4 \
-		$(if $(CONFIG_OPENVPN_$(BUILD_VARIANT)_ENABLE_X509_ALT_USERNAME),--enable,--disable)-x509-alt-username \
-		$(if $(CONFIG_OPENVPN_$(BUILD_VARIANT)_ENABLE_MANAGEMENT),--enable,--disable)-management \
-		$(if $(CONFIG_OPENVPN_$(BUILD_VARIANT)_ENABLE_FRAGMENT),--enable,--disable)-fragment \
-		$(if $(CONFIG_OPENVPN_$(BUILD_VARIANT)_ENABLE_IPROUTE2),--enable,--disable)-iproute2 \
-		$(if $(CONFIG_OPENVPN_$(BUILD_VARIANT)_ENABLE_PORT_SHARE),--enable,--disable)-port-share \
-		$(if $(CONFIG_OPENVPN_$(BUILD_VARIANT)_ENABLE_DCO),--enable,--disable)-dco \
-		$(if $(CONFIG_OPENVPN_OPENSSL),--with-crypto-library=openssl --with-openssl-engine=no) \
-		$(if $(CONFIG_OPENVPN_MBEDTLS),--with-crypto-library=mbedtls) \
-		$(if $(CONFIG_OPENVPN_WOLFSSL),--with-crypto-library=wolfssl) \
+		$(if $(CONFIG_OPENVPN_XOR_$(BUILD_VARIANT)_ENABLE_LZO),--enable,--disable)-lzo \
+		$(if $(CONFIG_OPENVPN_XOR_$(BUILD_VARIANT)_ENABLE_LZ4),--enable,--disable)-lz4 \
+		$(if $(CONFIG_OPENVPN_XOR_$(BUILD_VARIANT)_ENABLE_X509_ALT_USERNAME),--enable,--disable)-x509-alt-username \
+		$(if $(CONFIG_OPENVPN_XOR_$(BUILD_VARIANT)_ENABLE_MANAGEMENT),--enable,--disable)-management \
+		$(if $(CONFIG_OPENVPN_XOR_$(BUILD_VARIANT)_ENABLE_FRAGMENT),--enable,--disable)-fragment \
+		$(if $(CONFIG_OPENVPN_XOR_$(BUILD_VARIANT)_ENABLE_IPROUTE2),--enable,--disable)-iproute2 \
+		$(if $(CONFIG_OPENVPN_XOR_$(BUILD_VARIANT)_ENABLE_PORT_SHARE),--enable,--disable)-port-share \
+		$(if $(CONFIG_OPENVPN_XOR_$(BUILD_VARIANT)_ENABLE_DCO),--enable,--disable)-dco \
+		$(if $(CONFIG_OPENVPN_XOR_OPENSSL),--with-crypto-library=openssl --with-openssl-engine=no) \
+		$(if $(CONFIG_OPENVPN_XOR_MBEDTLS),--with-crypto-library=mbedtls) \
+		$(if $(CONFIG_OPENVPN_XOR_WOLFSSL),--with-crypto-library=wolfssl) \
 	)
 endef
 
@@ -95,7 +95,7 @@ define Package/openvpn-xor-$(BUILD_VARIANT)/conffiles
 /etc/openvpn.user
 endef
 
-define Package/openvpn-$(BUILD_VARIANT)/install
+define Package/openvpn-xor-$(BUILD_VARIANT)/install
 	$(INSTALL_DIR) \
 		$(1)/usr/sbin \
 		$(1)/usr/share/openvpn \
