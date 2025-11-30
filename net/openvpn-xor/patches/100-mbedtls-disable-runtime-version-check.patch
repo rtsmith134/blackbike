@@ -1,5 +1,5 @@
---- a/src/openvpn/ssl_mbedtls.c
-+++ b/src/openvpn/ssl_mbedtls.c
+--- a/src/openvpn-xor/ssl_mbedtls.c
++++ b/src/openvpn-xor/ssl_mbedtls.c
 @@ -1616,7 +1616,7 @@ const char *
  get_ssl_library_version(void)
  {

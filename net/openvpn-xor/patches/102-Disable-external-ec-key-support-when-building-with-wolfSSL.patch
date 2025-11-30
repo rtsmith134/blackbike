@@ -1,5 +1,5 @@
---- a/src/openvpn/ssl_openssl.c
-+++ b/src/openvpn/ssl_openssl.c
+--- a/src/openvpn-xor/ssl_openssl.c
++++ b/src/openvpn-xor/ssl_openssl.c
 @@ -1347,7 +1347,7 @@ err:
      return 0;
  }

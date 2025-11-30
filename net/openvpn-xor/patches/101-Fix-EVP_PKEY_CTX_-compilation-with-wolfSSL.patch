@@ -1,5 +1,5 @@
---- a/src/openvpn/crypto_openssl.c
-+++ b/src/openvpn/crypto_openssl.c
+--- a/src/openvpn-xor/crypto_openssl.c
++++ b/src/openvpn-xor/crypto_openssl.c
 @@ -49,7 +49,7 @@
  #include <openssl/rand.h>
  #include <openssl/ssl.h>
